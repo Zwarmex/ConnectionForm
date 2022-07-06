@@ -1,0 +1,51 @@
+import SwiftUI
+
+struct LoggingView: View {
+    
+    
+    @State private var Uusername = ""
+    @State private var Upassword = ""
+    @Binding var logView: Bool
+    
+    
+    var body: some View {
+        
+        ZStack {
+            Image("bg")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack{
+                
+                Spacer()
+                
+                TextField("Username", text: $Uusername)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+                
+                TextField("Password", text: $Upassword)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+                
+                Button("Log in") { 
+                    print("Log in")
+                }
+                .padding()
+                
+                Spacer()
+                
+                Text("Haven't an account ?")
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                
+                Button("Sign up") {
+                    logView = false
+                }
+                .padding()
+                
+                
+            }
+            
+        }
+    }
+}
